@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sieve of Eratosthenes</title>
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">Ez Algorithm</a></h1>
+        <nav>
+            <div>
+                <span><strong>Graph</strong></span>
+                <div>
+                    <a href="../graph/dijkstras.html">Dijkstras</a>
+                </div>
+            </div>
+            <div>
+                <span><strong>Tree</strong></span>
+                <div>
+                    <a href="../tree/SegTree.html">Segment Tree</a>
+                </div>
+            </div>
+            <div>
+                <span><strong>Number Theory</strong></span>
+                <div>
+                    <a href="sieve.html">Sieve of Eratosthenes</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Sieve of Eratosthenes</h1>
+        <figure>
+            <img src="../images/sieve.jpeg" alt="image of prime numbers from 2-50">
+            <figcaption>Fig.1 - Prime numbers found using sieve</figcaption>
+        </figure>
+        <hr>
+        <h2>Overview</h2>
+        <p><b>Sive of Eratosthenes</b> is an algorithm for finding all the prime numbers in a segment [1:n] using O(nloglogn) operations</p>
+        <p>The algorithm is very simple: at the beginning we write down all numbers between 2 and n. We mark all proper multiples of 2 (since 2 is the smallest prime number) as composite. A proper multiple of a number x, is a number greater than x and divisible by x. Then we find the next number that hasn't been marked as composite, in this case it is 3. Which means 3 is prime, and we mark all proper multiples of 3 as composite. The next unmarked number is 5, which is the next prime number, and we mark all proper multiples of it. And we continue this procedure until we processed all numbers in the row.</p>
+        <p>The idea behind is this: A number is prime, if none of the smaller prime numbers divides it. Since we iterate over the prime numbers in order, we already marked all numbers, who are divisible by at least one of the prime numbers, as divisible. Hence if we reach a cell and it is not marked, then it isn't divisible by any smaller prime number and therefore has to be prime.</p>
+        <hr>
+
+        <iframe src="https://www.youtube.com/embed/klcIklsWzrY"></iframe>
+        
+        <hr>
+
+        <h2>Implementation</h2>        
+        <pre><code>
+    int n;
+    vector<bool> is_prime(n+1, true);
+    is_prime[0] = is_prime[1] = false;
+    for (int i = 2; i &lt;= n; i++) {
+        if (is_prime[i] && (long long)i * i &lt;= n) {
+            for (int j = i * i; j &lt;= n; j += i)
+                is_prime[j] = false;
+        }
+    }
+        </code></pre>
+    
+        <h2>Practice Problems</h2>
+            <ol>
+                <li><a href="https://leetcode.com/problems/four-divisors/"> Four Divisors</a></li>
+                <li><a href="https://www.spoj.com/problems/TDPRIMES/"> Printing Some Primes</a></li>
+                <li><a href="https://codeforces.com/contest/26/problem/A"> Almost Prime</a></li>
+            </ol>
+        <hr>
+    </main>
+    <footer>
+        <p>Made with ❤️ by Alvin Hsu</p>
+    </footer>
+</body>
+</html>
