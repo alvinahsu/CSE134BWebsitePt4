@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="learning algorithms for competitive programming">
+    <meta name="keywords" content="Algorithms, Data Structure, Competitive Programming">
+    <title>EzAlgorithm</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style></style> <!-- NO STYLING FOR NOW -->
+</head>
+<body>
+    <header>
+        <h1>Ez Algorithm</h1>
+        <nav>
+            <div>
+                <span><strong>Graph</strong></span>
+                <div>
+                    <a href="graph/dijkstras.html">Dijkstras</a>
+                </div>
+            </div>
+            <div>
+                <span><strong>Tree</strong></span>
+                <div>
+                    <a href="">Segment Tree</a>
+                    <a href="">BIT</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <picture>
+            <img src="images/DSA.png" alt="image of a graph" width="200" height="200">
+        </picture>
+        <p>The purpose of my site is to serve as an educational resource providing users with a 
+            collection of algorithms that is popularly used in <em>competitive programming</em>. <br> All algorithms 
+            will be grouped by topic and provide overviews, implementation details, additional resources, 
+            and practice problems.</p>
+        
+        <video width="200" height="200" controls>
+            <source src="videos/DSAImportance.mp4" type="video/mp4">
+            Your browser does nto support the video tag
+        </video>
+        <hr>
+        <h2>Table of Contents</h2>
+        <section>
+            <h3>Graph</h3>
+            <details>
+                <summary>What is a graph?</summary>
+                <p>A graph data structure consists of a finite (and possibly mutable) set of vertices (also called nodes or points), together with a set of unordered pairs of these vertices for an undirected graph or a set of ordered pairs for a directed graph. These pairs are known as edges (also called links or lines), and for a directed graph are also known as edges but also sometimes arrows or arcs. The vertices may be part of the graph structure, or may be external entities represented by integer indices or references.</p>
+            </details>
+            <ul>
+                <li>Dijkstras</li>
+                <li>Dijkstras</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Tree</h3>
+            <ul>
+                <li>Segment Tree</li>
+                <li>BIT</li>
+            </ul>
+        </section>
+    </main>
+    <hr>
+    <h2>Experiment</h3> <!-- Experiment tages, not for site-->
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+    </svg>
+    <aside>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mi>E</mi>
+            <mo>=</mo>
+            <mi>m</mi>
+            <msup>
+                <mi>c</mi>
+                <mn>2</mn>
+            </msup>
+            </math>
+    </aside>
+    <h3>Statistics</h3>
+    <table>
+        <caption>By the numbers</caption>
+        <colgroup>
+            <col>
+            <col>
+          </colgroup>
+        <tr>
+          <th>Topics</th>
+          <th># Subtopic</th>
+        </tr>
+        <tr>
+          <td>Graph</td>
+          <td>3</td>
+        </tr>
+        <tr>
+            <td>Tree</td>
+            <td>2</td>
+          </tr>
+    </table>
+    <h3>Want to contribute?</h3>
+    <form>
+        <fieldset>
+            <legend>Contact me:</legend>
+            <label>First Name</label>
+            <input>
+        
+            <label>Last Name</label>
+            <input>
+        
+            <label>Country</label>
+            <select>
+                <optgroup label="North America">
+                    <option>Mexico</option>
+                    <option>Canada</option>
+                    <option>USA</option>
+                </optgroup>
+                <optgroup label="South America">
+                    <option>Brazil</option>
+                    <option>Peru</option>
+                    <option>Edcuador</option>
+                </optgroup>
+                <optgroup label="Asia">
+                    <option>Japan</option>
+                    <option>China</option>
+                    <option>India</option>
+                </optgroup>
+            </select>
+
+            <label for="browser">Choose your browser from the list:</label>
+            <input list="browsers" name="browser" id="browser">
+            <datalist id="browsers">
+                <option value="Edge">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+            </datalist>
+        
+            <label>Subject</label>
+            <textarea></textarea>
+        
+            <button>Submit</button>
+        </fieldset>
+    </form>
+    <footer>
+        <canvas id="footerCanvas">
+            Your browser does not support the canvas tag.
+        </canvas>
+        <script>
+            let c = document.getElementById("footerCanvas");
+            let ctx = c.getContext("2d");
+            ctx.fillStyle = "red";
+            ctx.fillRect(20, 20, 75, 50);
+        </script>
+        <template> <!-- Change to random footer -->
+            <p><i>Made with ❤️ by Alvin Hsu</i></p>
+        </template>
+        <audio controls>
+            <source src="sounds/wow.mp3" type="audio/mpeg">
+            Your browser does not support the audio element
+        </audio>
+        <p><i>Made with ❤️ by Alvin Hsu</i></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstras</title>
+</head>
+<body>
+    <header>
+        <h1>Ez Algorithm</h1>
+        <nav>
+            <div>
+                <span><strong>Graph</strong></span>
+                <div>
+                    <a href="dijkstras.html">Dijkstras</a>
+                </div>
+            </div>
+            <div>
+                <span><strong>Tree</strong></span>
+                <div>
+                    <a href="">Segment Tree</a>
+                    <a href="">BIT</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Dijkstras</h1>
+        <figure>
+            <img src="../images/dijkstras.jpeg" alt="image of undirected weighted graph">
+            <figcaption>Fig.1 - Undirected weighted graph</figcaption>
+        </figure>
+        <hr>
+        <h2>Overview</h2>
+        <p><b>Dijkstra's</b> algorithm is an algorithm for finding the shortest paths between nodes in a weighted graph, which may represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.</p>
+        <p>The algorithm exists in many variants. Dijkstra's original algorithm found the shortest path between two given nodes,but a more common variant fixes a single node as the "source" node and finds shortest paths from the source to all other nodes in the graph, producing a shortest-path tree.
+        </p>
+        <p>For a given source node in the graph, the algorithm finds the shortest path between that node and every other. It can also be used for finding the shortest paths from a single node to a single destination node by stopping the algorithm once the shortest path to the destination node has been determined. For example, if the nodes of the graph represent cities and costs of edge paths represent driving distances between pairs of cities connected by a direct road (for simplicity, ignore red lights, stop signs, toll roads and other obstructions), then Dijkstra's algorithm can be used to find the shortest route between one city and all other cities. A widely used application of shortest path algorithms is network routing protocols, most notably IS-IS (Intermediate System to Intermediate System) and OSPF (Open Shortest Path First). It is also employed as a subroutine in other algorithms such as Johnson's.</p>
+        <p>The Dijkstra algorithm uses labels that are positive integers or real numbers, which are totally ordered. It can be generalized to use any labels that are partially ordered, provided the subsequent labels (a subsequent label is produced when traversing an edge) are monotonically non-decreasing. This generalization is called the generic Dijkstra shortest-path algorithm.</p>
+        <p>Dijkstra's algorithm uses a data structure for storing and querying partial solutions sorted by distance from the start. Dijkstra's original algorithm does not use a min-priority queue and runs in time Θ(|V|2)\Theta (|V|^{2})(where |V| is the number of nodes).[10] The idea of this algorithm is also given in Leyzorek et al. 1957. Fredman & Tarjan 1984 propose using a Fibonacci heap min-priority queue to optimize the running time complexity to Θ(|E|+|V|log ⁡|V|{\displaystyle \Theta (|E|+|V|\log |V|)}. This is asymptotically the fastest known single-source shortest-path algorithm for arbitrary directed graphs with unbounded non-negative weights. However, specialized cases (such as bounded/integer weights, directed acyclic graphs etc.) can indeed be improved further as detailed in Specialized variants. Additionally, if preprocessing is allowed algorithms such as contraction hierarchies can be up to seven orders of magnitude faster.</p>
+
+        <hr>
+
+        <iframe src="https://www.youtube.com/watch?v=_lHSawdgXpI"></iframe>
+        
+        <hr>
+
+        <h2>Implementation</h2>        
+        <pre><code>
+    const int INF = 1000000000;
+    vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt; adj;
+
+    void dijkstra(int s, vector&lt;int&gt; & d, vector&lt;int&gt; & p) {
+        int n = adj.size();
+        d.assign(n, INF);
+        p.assign(n, -1);
+        vector&lt;bool&gt; u(n, false);
+
+        d[s] = 0;
+        for (int i = 0; i &lt; n; i++) {
+            int v = -1;
+            for (int j = 0; j &lt; n; j++) {
+                if (!u[j] && (v == -1 || d[j] &lt; d[v]))
+                    v = j;
+            }
+
+            if (d[v] == INF)
+                break;
+
+            u[v] = true;
+            for (auto edge : adj[v]) {
+                int to = edge.first;
+                int len = edge.second;
+
+                if (d[v] + len &lt; d[to]) {
+                    d[to] = d[v] + len;
+                    p[to] = v;
+                }
+            }
+        }
+    }
+        </code></pre>
+    
+        <h2>Practice Problems</h2>
+            <ol>
+                <li><a href="https://acm.timus.ru/problem.aspx?space=1&num=1930"> Ivan's Car</a></li>
+                <li><a href="https://www.spoj.com/problems/SHPATH/"> The Shortest Path</a></li>
+                <li><a href="https://codeforces.com/problemset/problem/567/E"> President and Roads</a></li>
+            </ol>
+        <hr>
+    </main>
+    <footer>
+        <p>Made with ❤️ by Alvin Hsu</p>
+    </footer>
+</body>
+</html>
