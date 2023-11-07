@@ -3,8 +3,10 @@
     --baby-blue: rgb(60, 138, 247);
     --nav-black: #333;
     --header-white: #f1f1f1;
+    --mix-gray: color-mix(in lch, color(srgb 0 0 0), color(srgb 1 1 1));
 }
 
+/* custom font face */
 @font-face {
     font-family: "Ubuntu Condensed";
     src: url('fonts/Ubuntu_Condensed/UbuntuCondensed-Regular.ttf') format('truetype');;
@@ -40,24 +42,9 @@ nav {
     background-color: var(--nav-black, #333);
     font-family: Arial;
     width: 100%;
-
-    a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    img {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
 }
 
-/* nav a {
+nav a {
     float: left;
     font-size: 16px;
     color: white;
@@ -70,7 +57,7 @@ nav img {
     position: absolute;
     top: 0;
     right: 0;
-} */
+}
 
 nav a:hover {
     background-color: var(--baby-blue, rgb(60, 138, 247));
@@ -80,17 +67,16 @@ nav a:hover {
 
 /* Styling for contact me */
 input[type=text], select, textarea {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical
 }
   
-  /* Style the submit button with a specific background color etc */
 input[type=submit] {
     background-color: var(--baby-blue, rgb(60, 138, 247));
     color: white;
@@ -106,11 +92,6 @@ input[type=submit]:hover {
     background-color: lightseagreen;
 }
 
-  /* Styling for footer */
-footer {
-    text-align: center;
-    background-color: color-mix(in lch, color(srgb 0 0 0), color(srgb 1 1 1));
-}
   
   /* Add a background color and some padding around the form */
 .container {
@@ -145,14 +126,13 @@ footer {
     padding-left: 25px;
 }
 
-/* Styling for paragraph text */
+/* Styling for page body */
 p {
     font-size: 18px; /* Set a comfortable font size */
     line-height: 1.6; /* Provide good line spacing for readability */
     margin-bottom: 1em; /* Add some space between paragraphs */
 }
 
-/* Make code scrollable when width is too small */
 pre {
     background-color: rgb(213, 213, 213);
     border-radius: 10px;
@@ -187,8 +167,15 @@ section:has(pre, iframe){
     max-height: 40vh;
 }
 
-/* Media queries responsiveness */
-@media (max-width: 550px) {
+
+/* Styling for footer */
+footer {
+    text-align: center;
+    background-color: var(--mix-gray, #333);
+}
+
+/* Media queries responsiveness for phone */
+@media (max-width: 500px) {
     nav img {
         position: absolute;
         top: 0;
@@ -196,10 +183,6 @@ section:has(pre, iframe){
         max-width: 125px;
         max-height: 125px;
     }
-}
-
-/* Media queries responsiveness */
-@media (max-width: 500px) {
     #implementation{
         display: flex;
         flex-wrap: wrap;
@@ -209,3 +192,16 @@ section:has(pre, iframe){
         flex-direction: column;
     }
 }
+
+/* Media queries responsiveness for tablet */
+@media (min-width: 501px) and (max-width: 991px) {
+    nav img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 175px;
+        max-height: 175px;
+    }
+}
+
+/* rest is responsiness for laptop/pc */
