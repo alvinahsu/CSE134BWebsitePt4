@@ -4,6 +4,9 @@
     --nav-black: #333;
     --header-white: #f1f1f1;
     --mix-gray: color-mix(in lch, color(srgb 0 0 0), color(srgb 1 1 1));
+
+    --dark-mode-black: #333;
+    --dark-mode-gray: rgb(91, 88, 88);
 }
 
 /* custom font face */
@@ -42,10 +45,6 @@ nav {
     background-color: var(--nav-black, #333);
     font-family: Arial;
     width: 100%;
-}
-
-nav.dark-mode {
-    background-color: rgb(25, 23, 23);
 }
 
 nav a {
@@ -117,7 +116,7 @@ input[type=submit]:hover {
 }
 
 #toc_container.dark-mode {
-    background: var(--nav-black, black) none repeat scroll 0 0;
+    background: var(--dark-mode-black, black) none repeat scroll 0 0;
     color: white
 }
 
@@ -153,7 +152,7 @@ pre {
 }
 
 pre.dark-mode{
-    background-color: rgb(91, 88, 88);
+    background-color: var(--dark-mode-gray, gray);
 }
 
 section:has(pre, iframe){
@@ -240,7 +239,7 @@ footer {
 }
 
 .dark-mode {
-    background-color: var(--nav-black, black);
+    background-color: var(--dark-mode-black, black);
     color: white;
 }
 
