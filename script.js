@@ -15,7 +15,7 @@ window.onload = () => {
     let mnLength = 5
 
     let printableRegex = /[ -~]/;
-    if (wordCount) wordCount.innerHTML = textarea.value.length + mxLength;
+    if (wordCount) wordCount.innerHTML = textarea.value.length + "/" + mxLength;
     textarea && textarea.addEventListener("input", function () {
         if (textarea.value.length > mxLength){
             textarea.value = textarea.value.substr(0, mxLength);
