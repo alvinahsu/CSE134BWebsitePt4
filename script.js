@@ -5,6 +5,7 @@ window.onload = () => {
     const isDarkMode = localStorage.getItem("isDarkMode");
     let button = document.getElementById("toggle_button")
     button.textContent = isDarkMode && isDarkMode=="true" ? "🌝" : "🌚";
+    console.log(isDarkMode);
     if (isDarkMode == "true") {
         toggleDark();
     }
@@ -13,12 +14,12 @@ window.onload = () => {
     let mxLength = 200
     let mnLength = 5
 
-    if (wordCount) wordCount.innerHTML = "0/" + mxLength;
+    let printableRegex = /[ -~]/;
+    if (wordCount) wordCount.innerHTML = textarea.value.length + mxLength;
     textarea && textarea.addEventListener("input", function () {
-        var text = textarea.value;
-        if (text.length > mxLength){
-            text = text.substr(0, mxLength);
-            textarea.value = text
+        if (textarea.value.length > mxLength){
+            textarea.value = textarea.value.substr(0, mxLength);
+            textarea.value = textarea.value
             errorCount.innerHTML = "Attempted max length error";
             errorCount.classList.add("fade-out");
             form_error.add(errorCount.innerHTML);
@@ -27,8 +28,20 @@ window.onload = () => {
                 errorCount.classList.remove("fade-out");
             }, 2000);
         }
-        wordCount.innerHTML = text.length + "/" + mxLength;
-        wordCount.style.color = text.length > mxLength-25 ? "red" : "black"
+
+        if (textarea.value && !printableRegex.test(textarea.value)){
+            textarea.value = textarea.value.replace(/[^ -~]+/g, '');
+            errorCount.innerHTML = "Attempted invalid comment character";
+            errorCount.classList.add("fade-out");
+            form_error.add(errorCount.innerHTML);
+            setTimeout(() => {
+                errorCount.innerHTML = "";
+                errorCount.classList.remove("fade-out");
+            }, 2000);
+        }
+
+        wordCount.innerHTML = textarea.value.length + "/" + mxLength;
+        wordCount.style.color = textarea.value.length > mxLength-25 ? "red" : "black"
     });
 
     let nameInput = document.getElementById("name");
@@ -37,7 +50,7 @@ window.onload = () => {
     nameInput && nameInput.addEventListener("input", function(){
         let okName = nameRegex.test(nameInput.value);
         if (!okName){
-            nameInput.value = nameInput.value.substr(0, mxLength);;
+            nameInput.value = nameInput.value.replace(/[^A-Za-z\s]+/g, '');
             errorName.innerHTML = "Attempted invalid name character";
             errorName.classList.add("fade-out");
             form_error.add(errorName.innerHTML);
@@ -47,6 +60,7 @@ window.onload = () => {
             }, 2000);
         }
     });
+      
 
     function validateForm(){
         let ok = true;
@@ -103,6 +117,6 @@ function toggleDark(){
     let isDarkMode = document.body.classList.contains("dark-mode");
     let button = document.getElementById("toggle_button")
     button.textContent = isDarkMode ? "🌝" : "🌚";
-    document.getElementsByTagName("pre").item(0).classList.toggle("dark-mode")
+    document.getElementsByTagName("pre").item(0) && document.getElementsByTagName("pre").item(0).classList.toggle("dark-mode")
     localStorage.setItem('isDarkMode', isDarkMode);
 }
