@@ -1,0 +1,26 @@
+<form action="https://httpbin.org/post" method="post">
+    <fieldset>
+        <legend>Contact me:</legend>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name.." required>
+        <output name="error_name" for="name"></output>
+        <output name="info_name" for="name"></output>
+
+        <!-- https://www.w3.org/TR/2012/WD-html-markup-20121025/input.email.html#form.data.emailaddress_xref2 -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email.." 
+        pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
+        <output name="error_email" for="email"></output>
+        <output name="info_email" for="email"></output>
+    
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments" placeholder="Write something.." style="height:15rem" 
+        minlength="5" maxlength="500" pattern="[A-Za-z0-9]+" required></textarea>
+        <output name="error_comments" for="comments"></output>
+        <output name="info_comments" for="comments"></output>
+        
+        <input type="hidden" id="possible_bot" name="possible_bot" value="true">
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>

@@ -44,6 +44,10 @@ nav {
     width: 100%;
 }
 
+nav.dark-mode {
+    background-color: rgb(25, 23, 23);
+}
+
 nav a {
     float: left;
     font-size: 16px;
@@ -52,6 +56,7 @@ nav a {
     padding: 14px 16px;
     text-decoration: none;
 }
+
 
 nav img {
     position: absolute;
@@ -66,7 +71,7 @@ nav a:hover {
 
 
 /* Styling for contact me */
-input[type=text], select, textarea {
+input[type=text],[type=email], select, textarea {
     width: 100%; 
     padding: 12px; 
     border: 1px solid #ccc; 
@@ -74,7 +79,7 @@ input[type=text], select, textarea {
     box-sizing: border-box; 
     margin-top: 6px; 
     margin-bottom: 16px; 
-    resize: vertical
+    resize: vertical;
 }
   
 input[type=submit] {
@@ -111,6 +116,11 @@ input[type=submit]:hover {
     width: 100%
 }
 
+#toc_container.dark-mode {
+    background: var(--nav-black, black) none repeat scroll 0 0;
+    color: white
+}
+
 #toc_container > h3 {
     padding-left: 20px;
 
@@ -126,6 +136,10 @@ input[type=submit]:hover {
     padding-left: 25px;
 }
 
+li > a{
+    color: inherit;
+}
+
 /* Styling for page body */
 p {
     font-size: 18px; /* Set a comfortable font size */
@@ -136,6 +150,10 @@ p {
 pre {
     background-color: rgb(213, 213, 213);
     border-radius: 10px;
+}
+
+pre.dark-mode{
+    background-color: rgb(91, 88, 88);
 }
 
 section:has(pre, iframe){
@@ -205,3 +223,35 @@ footer {
 }
 
 /* rest is responsiness for laptop/pc */
+
+
+.input_field {
+    display:flex;
+    flex-direction: column;
+}
+
+.error_message{
+    background-color: red;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 4s ease;
+}
+
+.dark-mode {
+    background-color: var(--nav-black, black);
+    color: white;
+}
+
+#toggle_button{
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+#toggle_button:hover{
+    transform: scale(1.2)
+}
