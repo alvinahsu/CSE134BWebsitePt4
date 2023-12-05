@@ -51,7 +51,8 @@ window.onload = () => {
         let okName = nameRegex.test(nameInput.value);
         if (!okName){
             nameInput.value = nameInput.value.replace(/[^A-Za-z\s]+/g, '');
-            errorName.innerHTML = "Attempted invalid name character";
+            // errorName.innerHTML = "Attempted invalid name character";
+            errorName.setCustomValidity("TEST");
             errorName.classList.add("fade-out");
             form_error.add(errorName.innerHTML);
             setTimeout(() => {
