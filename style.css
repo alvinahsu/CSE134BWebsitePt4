@@ -2,19 +2,19 @@
     --chosen-rating: #ffdd1f;
 }
 
-#js_wrapper{
+#rating-wrapper{
     display: flex;
     font-size: 2em;
     width: fit-content;
 }
 
 /* make all stars yellow */
-#js_wrapper:hover div{
+#rating-wrapper:hover div{
     color: var(--chosen-rating, yellow);
     cursor: pointer;
 }
 
 /* make successor stars black (all stars on and before will be yellow) */
-#js_wrapper div:hover ~ div {
+#rating-wrapper div:hover ~ div {
     color: black;
 }
