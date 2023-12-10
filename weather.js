@@ -57,7 +57,7 @@ window.onload = () => {
         addTemperature(data){
             let sp = document.createElement('span');
             const icon = document.createElement('img');
-            icon.src = "https://img.icons8.com/doodle/100/temperature.png"
+            icon.src = "images/temperature.png"
             sp.id = "temperature"
             let p = document.createElement('p');
             p.innerText = data.temperature + "°" + data.temperatureUnit;
@@ -69,7 +69,7 @@ window.onload = () => {
         addWind(data){
             let sp = document.createElement('span');
             const icon = document.createElement('img');
-            icon.src = "https://img.icons8.com/ios/100/wind--v1.png"
+            icon.src = "images/wind.png"
             sp.id = "wind"
             let p = document.createElement('p');
             p.innerText = data.windSpeed + " " + data.windDirection;
@@ -81,7 +81,7 @@ window.onload = () => {
         addHumidity(data){
             let sp = document.createElement('span');
             const icon = document.createElement('img');
-            icon.src = "https://img.icons8.com/officel/100/humidity.png"
+            icon.src = "images/humidity.png"
             sp.id = "humidity"
             let p = document.createElement('p');
             p.innerText = (data.relativeHumidity.value == null ? 0 : data.relativeHumidity.value) + " " + data.relativeHumidity.unitCode;
@@ -93,7 +93,7 @@ window.onload = () => {
         addPrecipitation(data){
             let sp = document.createElement('span');
             const icon = document.createElement('img');
-            icon.src = "https://img.icons8.com/external-microdots-premium-microdot-graphic/100/external-precipitation-weather-forecast-microdots-premium-microdot-graphic-2.png"
+            icon.src = "images/precipitation.png"
             sp.id = "humidity"
             let p = document.createElement('p');
             p.innerText = (data.probabilityOfPrecipitation.value == null ? 0 : data.probabilityOfPrecipitation.value)+ " " + data.probabilityOfPrecipitation.unitCode;
@@ -105,7 +105,7 @@ window.onload = () => {
         addDew(data){
             let sp = document.createElement('span');
             const icon = document.createElement('img');
-            icon.src = "https://img.icons8.com/color/100/dew-point.png"
+            icon.src = "images/dew.png"
             sp.id = "humidity"
             let p = document.createElement('p');
             p.innerText = (data.dewpoint.value == null ? 0 : data.dewpoint.value.toFixed(3))+ " " + data.dewpoint.unitCode;
